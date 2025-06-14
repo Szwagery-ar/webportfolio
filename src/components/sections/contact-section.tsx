@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { sendContactEmail } from "@/app/actions/send-email"
 
@@ -52,6 +52,7 @@ export default function ContactSection() {
         showToast("error", result.error || "Failed to send message. Please try again.")
       }
     } catch (error) {
+      console.error("❌ Error sending contact form:", error)
       showToast("error", "An unexpected error occurred. Please try again.")
     } finally {
       setIsSubmitting(false)
