@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight, CheckCircle, AlertCircle } from "lucide-react"
+import { ArrowRight} from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { sendContactEmail } from "@/app/actions/send-email"
 

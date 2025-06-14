@@ -95,10 +95,10 @@ export default function AboutSection() {
           <AnimatedSection delay={400}>
             <div className="space-y-6 text-muted-foreground">
               <p>
-                With hands-on experience in both frontend and backend development, I’ve worked on practical academic projects like a secondhand marketplace using Next.js and React Native. I focus on delivering clean design with efficient architecture.
+                With hands-on experience in both frontend and backend development, I&rsquo;ve worked on practical academic projects like a secondhand marketplace using Next.js and React Native. I focus on delivering clean design with efficient architecture.
               </p>
               <p>
-                As a student staff in the university’s Information Systems Office, I assist students in solving system-related issues such as account access and usage problems. I combine technical support with communication skills, which I also apply in organizational activities on campus.
+                As a student staff in the university&rsquo;s Information Systems Office, I assist students in solving system-related issues such as account access and usage problems. I combine technical support with communication skills, which I also apply in organizational activities on campus.
               </p>
             </div>
           </AnimatedSection>

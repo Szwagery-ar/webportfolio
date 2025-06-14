@@ -31,7 +31,6 @@ export function GlitchText({ text, className = "", glitchOnHover = false }: Glit
 
         setIsGlitching(true)
         let iteration = 0
-        const maxIterations = 10
         const interval = 60
 
         const glitchInterval = setInterval(() => {

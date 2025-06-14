@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Inter, Space_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
-import { CursorTrail } from "@/components/cursor-trail"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const spaceMono = Space_Mono({
@@ -13,8 +12,7 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Brutalist Portfolio",
-  description: "A modern brutalist portfolio with high contrast design",
+  title: "Szwagery | Portfolio"
 }
 
 export default function RootLayout({
