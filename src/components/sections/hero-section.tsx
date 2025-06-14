@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlitchText } from "@/components/glitch-text"
 import { AnimatedSection } from "@/components/animated-section"

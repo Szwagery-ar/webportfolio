@@ -89,7 +89,7 @@ export default function ContactSection() {
             <div className="h-1 bg-[#00DBD8] flex-grow ml-4"></div>
           </h2>
           <p className="text-xl mb-8 max-w-md border-l-4 border-[#00DBD8] pl-4">
-            Interested in working together? Let's connect and discuss your next project.
+            Interested in working together? Let&rsquo;s connect and discuss your next project.
           </p>
 
           <div className="space-y-6">

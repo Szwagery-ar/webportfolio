@@ -88,7 +88,7 @@ export default function AboutSection() {
         <div className="lg:col-span-8 space-y-8">
           <AnimatedSection delay={200}>
             <div className="text-xl md:text-2xl font-medium leading-relaxed border-b-2 border-[#00DBD8] pb-4">
-              I'm a full-stack developer passionate about building efficient and impactful digital experiences, from web apps to mobile platforms.
+              I&rsquo;m a full-stack developer passionate about building efficient and impactful digital experiences, from web apps to mobile platforms.
             </div>
           </AnimatedSection>
 
@@ -139,13 +139,13 @@ export default function AboutSection() {
                   <div>
                     <div className="font-medium">Student Staff — Information Systems Office</div>
                     <div className="text-sm text-muted-foreground">
-                      Universitas Atma Jaya Yogyakarta <br /> Sep 2024 – Present
+                      Universitas Atma Jaya Yogyakarta <br /> Sep 2024 - Present
                     </div>
                   </div>
                   <div>
                     <div className="font-medium">Capstone Developer — Online Marketplace Project</div>
                     <div className="text-sm text-muted-foreground">
-                      Next.js & MySQL <br /> Feb 2025 – Jun 2025
+                      Next.js & MySQL <br /> Feb 2025 - Jun 2025
                     </div>
                   </div>
                 </div>
