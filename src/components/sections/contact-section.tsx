@@ -17,10 +17,21 @@ export default function ContactSection() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null
+
+  const [toast, setToast] = useState<{
+    show: boolean
+    type: "success" | "error"
     message: string
-  }>({ type: null, message: "" })
+  }>({ show: false, type: "success", message: "" })
+
+  const showToast = (type: "success" | "error", message: string) => {
+    setToast({ show: true, type, message })
+
+    setTimeout(() => {
+      setToast({ show: false, type, message: "" })
+    }, 5000)
+  }
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -30,40 +41,40 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: "" })
 
     try {
       const result = await sendContactEmail(formData)
 
       if (result.success) {
-        setSubmitStatus({
-          type: "success",
-          message: "Message sent successfully! I'll get back to you soon.",
-        })
+        showToast("success", "Message sent successfully! I'll get back to you soon.")
         setFormData({ name: "", email: "", message: "" })
       } else {
-        setSubmitStatus({
-          type: "error",
-          message: result.error || "Failed to send message. Please try again.",
-        })
+        showToast("error", result.error || "Failed to send message. Please try again.")
       }
     } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "An unexpected error occurred. Please try again.",
-      })
+      showToast("error", "An unexpected error occurred. Please try again.")
     } finally {
       setIsSubmitting(false)
-
-      // Clear status after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus({ type: null, message: "" })
-      }, 5000)
     }
   }
 
+
   return (
     <section id="contact" className="py-20 md:py-32 relative">
+      {
+        toast.show && (
+          <div
+            className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-md shadow-lg border text-sm font-medium transition-opacity duration-300 animate-fade-in-out"
+            style={{
+              backgroundColor: "#00DBD8",
+              borderColor: "#00DBD8",
+              color: "#1F2833",
+            }}
+          >
+            {toast.message}
+          </div>
+        )
+      }
       {/* Checkered background */}
       <div className="absolute inset-0 checkered-bg pointer-events-none"></div>
 
@@ -135,24 +146,6 @@ export default function ContactSection() {
             <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-[#00DBD8]"></div>
 
             <h3 className="font-mono text-xl mb-6 text-[#00DBD8]">GET IN TOUCH</h3>
-
-            {/* Status Messages */}
-            {submitStatus.type && (
-              <div
-                className={`mb-6 p-4 border-l-4 flex items-center space-x-3 ${
-                  submitStatus.type === "success"
-                    ? "bg-green-50 border-green-400 text-green-700"
-                    : "bg-red-50 border-red-400 text-red-700"
-                }`}
-              >
-                {submitStatus.type === "success" ? (
-                  <CheckCircle className="h-5 w-5 flex-shrink-0" />
-                ) : (
-                  <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                )}
-                <p className="text-sm font-medium">{submitStatus.message}</p>
-              </div>
-            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
